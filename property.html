@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Property | OluwaSeun Property</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/property.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-logo">OluwaSeun <span>Property</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html" class="active">Listings</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="listings.html" class="nav-cta">View Listings</a>
+      <a href="admin.html" class="nav-admin"><i class="ti ti-lock"></i> Admin</a>
+    </div>
+    <button class="nav-toggle" id="navToggle"><i class="ti ti-menu-2"></i></button>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="breadcrumb">
+    <a href="index.html">Home</a>
+    <i class="ti ti-chevron-right"></i>
+    <a href="listings.html">Listings</a>
+    <i class="ti ti-chevron-right"></i>
+    <span id="breadcrumbTitle">Loading...</span>
+  </div>
+
+  <!-- LOADING STATE -->
+  <div id="loadingState" style="text-align:center;padding:6rem 2rem;color:#6b6658;">
+    <i class="ti ti-loader" style="font-size:40px;display:block;margin-bottom:1rem;animation:spin 1s linear infinite;"></i>
+    <p>Loading property...</p>
+  </div>
+
+  <!-- ERROR STATE -->
+  <div id="errorState" style="display:none;text-align:center;padding:6rem 2rem;color:#6b6658;">
+    <i class="ti ti-home-off" style="font-size:48px;display:block;margin-bottom:1rem;color:#2a2a2a;"></i>
+    <h2 style="font-size:20px;margin-bottom:8px;color:#f0ece4;">Property Not Found</h2>
+    <p style="margin-bottom:1.5rem;">This property may have been removed or the link is invalid.</p>
+    <a href="listings.html" class="btn-primary">View All Properties</a>
+  </div>
+
+  <!-- PROPERTY CONTENT -->
+  <div id="propertyContent" style="display:none;">
+
+    <div class="property-page">
+
+      <!-- LEFT COLUMN -->
+      <div class="property-main">
+
+        <!-- GALLERY -->
+        <div class="gallery">
+          <div class="gallery-main">
+            <img id="mainImg" src="" alt="Property image" onerror="this.style.display='none'" />
+            <div class="gallery-main-placeholder"><i class="ti ti-building" id="galleryIcon"></i></div>
+            <span class="prop-badge badge-sale" id="propBadge">For Sale</span>
+            <button class="gallery-prev" id="prevBtn"><i class="ti ti-chevron-left"></i></button>
+            <button class="gallery-next" id="nextBtn"><i class="ti ti-chevron-right"></i></button>
+            <span class="img-counter" id="imgCounter">1 / 1</span>
+          </div>
+          <div class="gallery-thumbs" id="galleryThumbs"></div>
+        </div>
+
+        <!-- TITLE & PRICE -->
+        <div class="prop-header">
+          <div>
+            <h1 id="propTitle">Loading...</h1>
+            <div class="prop-location-lg">
+              <i class="ti ti-map-pin"></i> <span id="propLocation"></span>
+            </div>
+          </div>
+          <div class="prop-price-lg">
+            <span id="propPrice"></span>
+            <span class="price-note">Negotiable</span>
+          </div>
+        </div>
+
+        <!-- QUICK STATS -->
+        <div class="quick-stats" id="quickStats"></div>
+
+        <!-- DESCRIPTION -->
+        <div class="prop-section">
+          <h2>About This Property</h2>
+          <div id="propDescription" style="font-size:14px;color:#a09880;line-height:1.8;"></div>
+        </div>
+
+        <!-- FEATURES -->
+        <div class="prop-section" id="featuresSection">
+          <h2>Features &amp; Amenities</h2>
+          <div class="amenities-grid" id="amenitiesGrid"></div>
+        </div>
+
+        <!-- DETAILS TABLE -->
+        <div class="prop-section">
+          <h2>Property Details</h2>
+          <table class="details-table" id="detailsTable"></table>
+        </div>
+
+        <!-- MAP -->
+        <div class="prop-section">
+          <h2>Location Map</h2>
+          <div class="map-placeholder">
+            <i class="ti ti-map-2"></i>
+            <p id="mapLocation">Lagos, Nigeria</p>
+            <a id="mapLink" href="#" target="_blank" class="btn-outline" style="margin-top:1rem;display:inline-block;">
+              Open in Google Maps
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="property-sidebar">
+
+        <div class="sidebar-card agent-card">
+          <div class="agent-avatar">SP</div>
+          <div class="agent-info">
+            <h3>OluawSeun Property</h3>
+            <p>Licensed Real Estate Agent</p>
+            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 10+ Years Experience</p>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Contact Agent</h3>
+          <a id="waBtn" href="#" target="_blank" class="contact-btn wa-contact-btn">
+            <i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp
+          </a>
+          <a href="tel:+2348035623645" class="contact-btn call-btn">
+            <i class="ti ti-phone"></i> Call: 08035623645
+          </a>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Send Inquiry</h3>
+          <div id="inquiryFormWrap">
+            <div class="form-group" style="margin-bottom:12px;">
+              <label style="display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6b6658;margin-bottom:5px;">Your Name</label>
+              <input type="text" id="inquiryName" placeholder="e.g. Emeka Okafor" style="width:100%;background:#111;border:0.5px solid #2a2a2a;border-radius:2px;color:#f0ece4;font-size:13px;padding:10px 12px;outline:none;font-family:inherit;" />
+            </div>
+            <div class="form-group" style="margin-bottom:12px;">
+              <label style="display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6b6658;margin-bottom:5px;">Phone Number</label>
+              <input type="tel" id="inquiryPhone" placeholder="e.g. 08012345678" style="width:100%;background:#111;border:0.5px solid #2a2a2a;border-radius:2px;color:#f0ece4;font-size:13px;padding:10px 12px;outline:none;font-family:inherit;" />
+            </div>
+            <div class="form-group" style="margin-bottom:12px;">
+              <label style="display:block;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#6b6658;margin-bottom:5px;">Message</label>
+              <textarea id="inquiryMessage" rows="3" placeholder="I am interested in this property..." style="width:100%;background:#111;border:0.5px solid #2a2a2a;border-radius:2px;color:#f0ece4;font-size:13px;padding:10px 12px;outline:none;font-family:inherit;resize:vertical;"></textarea>
+            </div>
+            <button class="btn-primary" style="width:100%;justify-content:center;" id="inquirySubmit">Send Inquiry</button>
+            <p style="font-size:11px;color:#6b6658;text-align:center;margin-top:8px;">We respond within 24 hours</p>
+          </div>
+          <div id="formSuccess" style="display:none;text-align:center;padding:1.5rem;color:#4caf7a;">
+            <i class="ti ti-circle-check" style="font-size:40px;display:block;margin-bottom:0.5rem;"></i>
+            <p style="font-size:14px;color:#a09880;">Inquiry sent! We will contact you shortly.</p>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <h3 class="sidebar-title">Share Property</h3>
+          <div class="share-btns">
+            <button class="share-btn" id="shareWa" title="Share on WhatsApp"><i class="ti ti-brand-whatsapp"></i></button>
+            <button class="share-btn" id="shareCopy" title="Copy link"><i class="ti ti-link"></i></button>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <!-- RELATED PROPERTIES -->
+    <section class="section dark-section">
+      <div class="section-header">
+        <div>
+          <p class="tag">You May Also Like</p>
+          <h2>Related Properties</h2>
+        </div>
+        <a href="listings.html" class="view-all">View All &rarr;</a>
+      </div>
+      <div class="properties-grid" id="relatedGrid"></div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0.75rem;">OluwaSeun <span>Property</span></div>
+        <p>Your trusted real estate partner in Lagos. 10+ years of experience.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="listings.html">Properties</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="tel:+2348035623645"><i class="ti ti-phone"></i> 08035623645</a>
+        <a href="https://wa.me/2348035623645" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Seun Property. All rights reserved.</p>
+      <p class="gold">Lagos, Nigeria</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2348035623645" target="_blank" class="float-wa">
+    <i class="ti ti-brand-whatsapp"></i>
+  </a>
+
+  <style>
+    @keyframes spin { from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+  </style>
+
+  <script src="js/main.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://dltqvshwjoobptwkasei.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsdHF2c2h3am9vYnB0d2thc2VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjM2MDgsImV4cCI6MjA5NTQzOTYwOH0.w1dpv9C0wbMVeScQ5wC1uk3WT8MN8CjqeGcKnFAKa44';
+
+    let images = [];
+    let currentIndex = 0;
+    let property = null;
+
+    // Get ID from URL
+    const params = new URLSearchParams(window.location.search);
+    const propId = params.get('id');
+
+    if (!propId) {
+      showError();
+    } else {
+      loadProperty(propId);
+    }
+
+    async function loadProperty(id) {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/properties?id=eq.${id}&select=*`, {
+          headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+        });
+        const data = await res.json();
+        if (!data || data.length === 0) { showError(); return; }
+        property = data[0];
+        renderProperty(property);
+        loadRelated(property);
+      } catch(e) {
+        showError();
+      }
+    }
+
+    function renderProperty(p) {
+      document.title = `${p.title} | OluwaSeun Property`;
+      document.getElementById('breadcrumbTitle').textContent = p.title;
+      document.getElementById('propTitle').textContent = p.title;
+      document.getElementById('propLocation').textContent = `${p.location}, Lagos`;
+      document.getElementById('propPrice').textContent = `₦${Number(p.price).toLocaleString()}${p.type === 'rent' ? ' / yr' : ''}`;
+
+      // Badge
+      const badge = document.getElementById('propBadge');
+      if (p.type === 'rent') { badge.textContent = 'For Rent'; badge.className = 'prop-badge badge-rent'; }
+      else { badge.textContent = 'For Sale'; badge.className = 'prop-badge badge-sale'; }
+
+      // Images
+      images = p.images ? p.images.split(',').map(u => u.trim()).filter(Boolean) : [];
+      if (images.length > 0) {
+        setImage(0);
+        renderThumbs();
+      }
+      document.getElementById('imgCounter').textContent = `1 / ${images.length || 1}`;
+
+      // Quick stats
+      const stats = [];
+      if (p.beds)  stats.push(`<div class="qs-item"><i class="ti ti-bed"></i><span class="qs-value">${p.beds}</span><span class="qs-label">Bedrooms</span></div>`);
+      if (p.baths) stats.push(`<div class="qs-item"><i class="ti ti-bath"></i><span class="qs-value">${p.baths}</span><span class="qs-label">Bathrooms</span></div>`);
+      if (p.size)  stats.push(`<div class="qs-item"><i class="ti ti-ruler"></i><span class="qs-value">${p.size}</span><span class="qs-label">Size</span></div>`);
+      document.getElementById('quickStats').innerHTML = stats.join('');
+
+      // Description
+      const desc = document.getElementById('propDescription');
+      desc.innerHTML = p.description ? p.description.split('\n').map(l => `<p>${l}</p>`).join('') : '<p style="color:#6b6658;">No description provided.</p>';
+
+      // Features
+      if (p.features) {
+        const feats = p.features.split(',').map(f => f.trim()).filter(Boolean);
+        document.getElementById('amenitiesGrid').innerHTML = feats.map(f => `<div class="amenity"><i class="ti ti-check"></i> ${f}</div>`).join('');
+      } else {
+        document.getElementById('featuresSection').style.display = 'none';
+      }
+
+      // Details table
+      document.getElementById('detailsTable').innerHTML = `
+        <tr><td>Property Type</td><td>${p.category || '—'}</td></tr>
+        <tr><td>Status</td><td><span class="status-badge">${p.type === 'rent' ? 'For Rent' : 'For Sale'}</span></td></tr>
+        <tr><td>Location</td><td>${p.location}, Lagos</td></tr>
+        ${p.size  ? `<tr><td>Size</td><td>${p.size}</td></tr>` : ''}
+        ${p.beds  ? `<tr><td>Bedrooms</td><td>${p.beds}</td></tr>` : ''}
+        ${p.baths ? `<tr><td>Bathrooms</td><td>${p.baths}</td></tr>` : ''}
+        <tr><td>Listed By</td><td>OluwaSeun Property</td></tr>`;
+
+      // Map
+      document.getElementById('mapLocation').textContent = `${p.location}, Lagos, Nigeria`;
+      document.getElementById('mapLink').href = `https://maps.google.com/?q=${encodeURIComponent(p.location + ' Lagos Nigeria')}`;
+
+      // WhatsApp button
+      const waText = `Hello Seun Property!%0A%0AI am interested in: ${encodeURIComponent(p.title)}%0ALocation: ${encodeURIComponent(p.location)}%0APrice: ₦${Number(p.price).toLocaleString()}%0A%0APlease send me more details.`;
+      document.getElementById('waBtn').href = `https://wa.me/2348035623645?text=${waText}`;
+
+      // Show content
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('propertyContent').style.display = 'block';
+    }
+
+    // Gallery
+    function setImage(index) {
+      currentIndex = index;
+      const img = document.getElementById('mainImg');
+      if (images[index]) { img.src = images[index]; img.style.display = 'block'; }
+      document.getElementById('imgCounter').textContent = `${index + 1} / ${images.length}`;
+      document.querySelectorAll('.thumb').forEach((t, i) => t.classList.toggle('active', i === index));
+    }
+
+    function renderThumbs() {
+      document.getElementById('galleryThumbs').innerHTML = images.map((url, i) => `
+        <div class="thumb ${i === 0 ? 'active' : ''}" data-index="${i}" onclick="setImage(${i})">
+          <img src="${url}" alt="Photo ${i+1}" onerror="this.style.display='none'" />
+          <div class="thumb-placeholder"><i class="ti ti-photo"></i></div>
+        </div>`).join('');
+    }
+
+    document.getElementById('prevBtn').addEventListener('click', () => setImage((currentIndex - 1 + images.length) % images.length));
+    document.getElementById('nextBtn').addEventListener('click', () => setImage((currentIndex + 1) % images.length));
+    document.addEventListener('keydown', e => {
+      if (e.key === 'ArrowLeft')  setImage((currentIndex - 1 + images.length) % images.length);
+      if (e.key === 'ArrowRight') setImage((currentIndex + 1) % images.length);
+    });
+
+    // Inquiry form
+    document.getElementById('inquirySubmit').addEventListener('click', () => {
+      const name    = document.getElementById('inquiryName').value.trim();
+      const phone   = document.getElementById('inquiryPhone').value.trim();
+      const message = document.getElementById('inquiryMessage').value.trim();
+      if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
+      const title = property ? property.title : 'this property';
+      const text  = `Hello Seun Property!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AProperty: ${encodeURIComponent(title)}%0A%0A${encodeURIComponent(message || 'Please contact me.')}`;
+      window.open(`https://wa.me/2348035623645?text=${text}`, '_blank');
+      document.getElementById('inquiryFormWrap').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    });
+
+    // Share
+    document.getElementById('shareWa').addEventListener('click', () => {
+      window.open(`https://wa.me/?text=Check out this property from Seun Property:%0A${encodeURIComponent(window.location.href)}`, '_blank');
+    });
+    document.getElementById('shareCopy').addEventListener('click', () => {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const btn = document.getElementById('shareCopy');
+        btn.querySelector('i').className = 'ti ti-check';
+        btn.style.color = 'var(--green)';
+        setTimeout(() => { btn.querySelector('i').className = 'ti ti-link'; btn.style.color = ''; }, 2000);
+      });
+    });
+
+    // Related properties
+    async function loadRelated(p) {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/properties?id=neq.${p.id}&location=eq.${encodeURIComponent(p.location)}&limit=3&select=*`, {
+          headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+        });
+        let data = await res.json();
+        if (!data || data.length === 0) {
+          const res2 = await fetch(`${SUPABASE_URL}/rest/v1/properties?id=neq.${p.id}&select=*&limit=3`, {
+            headers: { 'apikey': SUPABASE_KEY, 'Authorization': `Bearer ${SUPABASE_KEY}` }
+          });
+          data = await res2.json();
+        }
+        if (!data || data.length === 0) { document.querySelector('.section.dark-section').style.display = 'none'; return; }
+        document.getElementById('relatedGrid').innerHTML = data.map(rp => {
+          const img = rp.images ? rp.images.split(',')[0].trim() : '';
+          const icon = rp.category === 'land' ? 'ti-map-2' : rp.category === 'flat' ? 'ti-home' : 'ti-building';
+          return `
+            <div class="prop-card" onclick="window.location='property.html?id=${rp.id}'">
+              <div class="prop-img">
+                ${img ? `<img src="${img}" alt="${rp.title}" onerror="this.style.display='none'" />` : ''}
+                <div class="prop-img-placeholder"><i class="ti ${icon}"></i></div>
+                <span class="prop-badge ${rp.type === 'rent' ? 'badge-rent' : 'badge-sale'}">${rp.type === 'rent' ? 'For Rent' : 'For Sale'}</span>
+              </div>
+              <div class="prop-info">
+                <div class="prop-price">&#8358;${Number(rp.price).toLocaleString()}</div>
+                <div class="prop-title">${rp.title}</div>
+                <div class="prop-location"><i class="ti ti-map-pin"></i> ${rp.location}, Lagos</div>
+                <div class="prop-features">
+                  ${rp.beds  ? `<span class="prop-feat"><i class="ti ti-bed"></i> ${rp.beds} Beds</span>` : ''}
+                  ${rp.baths ? `<span class="prop-feat"><i class="ti ti-bath"></i> ${rp.baths} Baths</span>` : ''}
+                </div>
+                <a href="property.html?id=${rp.id}" class="prop-btn">View Details</a>
+              </div>
+            </div>`;
+        }).join('');
+      } catch(e) {
+        document.querySelector('.section.dark-section').style.display = 'none';
+      }
+    }
+
+    function showError() {
+      document.getElementById('loadingState').style.display = 'none';
+      document.getElementById('errorState').style.display = 'block';
+    }
+  </script>
+</body>
+</html>

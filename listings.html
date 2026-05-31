@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Properties | OluwaSeun Property</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/listings.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <!-- COPY THIS NAVBAR INTO ALL PAGES (index, listings, about, contact, property) -->
+<!-- Change the "active" class to match whichever page you're on -->
+
+<nav class="navbar">
+  <div class="nav-logo">OluwaSeun <span>Property</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="listings.html">Listings</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="listings.html" class="nav-cta">View Listings</a>
+    <a href="admin.html" class="nav-admin">
+      <i class="ti ti-lock"></i> Admin
+    </a>
+  </div>
+  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+    <i class="ti ti-menu-2"></i>
+  </button>
+</nav>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <p class="tag">Browse All</p>
+    <h1>Our Properties</h1>
+    <p class="page-sub">Find your perfect property across Lagos — filter by location, price, type and more.</p>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <div class="filter-search">
+      <i class="ti ti-search"></i>
+      <input type="text" id="searchInput" placeholder="Search by title or location..." />
+    </div>
+    <select id="filterLocation">
+      <option value="">All Locations</option>
+      <option>Lekki</option>
+      <option>Victoria Island</option>
+      <option>Ikoyi</option>
+      <option>Ajah</option>
+      <option>Yaba</option>
+      <option>Ikeja</option>
+      <option>Maryland</option>
+    </select>
+    <select id="filterType">
+      <option value="">Sale &amp; Rent</option>
+      <option value="sale">For Sale</option>
+      <option value="rent">For Rent</option>
+    </select>
+    <select id="filterCategory">
+      <option value="">All Types</option>
+      <option value="house">House</option>
+      <option value="flat">Flat / Apartment</option>
+      <option value="duplex">Duplex</option>
+      <option value="land">Land</option>
+      <option value="commercial">Commercial</option>
+    </select>
+    <select id="filterBeds">
+      <option value="">Any Bedrooms</option>
+      <option value="1">1 Bedroom</option>
+      <option value="2">2 Bedrooms</option>
+      <option value="3">3 Bedrooms</option>
+      <option value="4">4 Bedrooms</option>
+      <option value="5">5+ Bedrooms</option>
+    </select>
+    <button id="clearFilters" class="btn-clear">
+      <i class="ti ti-x"></i> Clear
+    </button>
+  </div>
+
+  <!-- RESULTS INFO -->
+  <div class="results-bar">
+    <span id="resultsCount">Loading properties...</span>
+    <div class="view-toggle">
+      <button id="gridView" class="view-btn active" title="Grid view"><i class="ti ti-layout-grid"></i></button>
+      <button id="listView" class="view-btn" title="List view"><i class="ti ti-layout-list"></i></button>
+    </div>
+  </div>
+
+  <!-- PROPERTIES GRID -->
+  <div class="listings-container">
+
+    <!-- LOADING STATE -->
+    <div id="loadingState" style="text-align:center; padding:4rem 2rem; color:#6b6658;">
+      <i class="ti ti-loader" style="font-size:36px; display:block; margin-bottom:1rem; animation: spin 1s linear infinite;"></i>
+      <p>Loading properties...</p>
+    </div>
+
+    <div class="properties-grid" id="propertiesGrid" style="display:none;"></div>
+
+    <!-- NO RESULTS -->
+    <div class="no-results" id="noResults" style="display:none;">
+      <i class="ti ti-home-off"></i>
+      <h3>No properties found</h3>
+      <p>Try adjusting your filters or <button onclick="clearAllFilters()" class="link-btn">clear all filters</button></p>
+    </div>
+
+  </div>
+
+  <!-- CTA BAND -->
+  <div class="cta-band">
+    <div class="cta-text">
+      <h2>Can't find what you're looking for?</h2>
+      <p>Tell us what you need — we'll find it for you.</p>
+    </div>
+    <a href="https://wa.me/2348035623645" target="_blank" class="wa-btn">
+      <i class="ti ti-brand-whatsapp"></i> Chat on WhatsApp
+    </a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="nav-logo" style="margin-bottom:0.75rem;">Seun <span>Property</span></div>
+        <p>Your trusted real estate partner in Lagos. Luxury homes, prime land, and professional service for 10+ years.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <a href="listings.html">Properties</a>
+        <a href="about.html">About Us</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-links">
+        <h4>Contact</h4>
+        <a href="tel:+2348035623645"><i class="ti ti-phone"></i> 08035623645</a>
+        <a href="https://wa.me/2348035623645" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:seunshobowale28@gmail.com"><i class="ti ti-mail"></i> Email Us</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 OluwaSeun Property. All rights reserved.</p>
+      <p class="gold">Lagos, Nigeria</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/2348035623645" target="_blank" class="float-wa">
+    <i class="ti ti-brand-whatsapp"></i>
+  </a>
+
+  <style>
+    @keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+  </style>
+
+  <script src="js/main.js"></script>
+  <script>
+    const SUPABASE_URL = 'https://dltqvshwjoobptwkasei.supabase.co';
+    const SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImRsdHF2c2h3am9vYnB0d2thc2VpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzk4NjM2MDgsImV4cCI6MjA5NTQzOTYwOH0.w1dpv9C0wbMVeScQ5wC1uk3WT8MN8CjqeGcKnFAKa44';
+
+    let allProperties = [];
+
+    // Fetch properties from Supabase
+    async function fetchProperties() {
+      try {
+        const res = await fetch(`${SUPABASE_URL}/rest/v1/properties?select=*&order=created_at.desc`, {
+          headers: {
+            'apikey': SUPABASE_KEY,
+            'Authorization': `Bearer ${SUPABASE_KEY}`
+          }
+        });
+        const data = await res.json();
+        allProperties = data;
+        renderProperties(data);
+      } catch (err) {
+        document.getElementById('loadingState').innerHTML = `
+          <i class="ti ti-wifi-off" style="font-size:36px;display:block;margin-bottom:1rem;color:#2a2a2a;"></i>
+          <p style="color:#6b6658;">Could not load properties. Check your connection.</p>`;
+      }
+    }
+
+    // Render property cards
+    function renderProperties(properties) {
+      const grid = document.getElementById('propertiesGrid');
+      const loading = document.getElementById('loadingState');
+      const noResults = document.getElementById('noResults');
+
+      loading.style.display = 'none';
+
+      if (!properties || properties.length === 0) {
+        grid.style.display = 'none';
+        noResults.style.display = 'block';
+        document.getElementById('resultsCount').textContent = 'No properties found';
+        return;
+      }
+
+      grid.style.display = '';
+      noResults.style.display = 'none';
+      document.getElementById('resultsCount').textContent = `Showing ${properties.length} propert${properties.length === 1 ? 'y' : 'ies'}`;
+
+      grid.innerHTML = properties.map(p => {
+        const isRent = p.type === 'rent';
+        const imgSrc = p.images ? p.images.split(',')[0].trim() : '';
+        const icon = p.category === 'land' ? 'ti-map-2' : p.category === 'commercial' ? 'ti-building-store' : p.category === 'flat' ? 'ti-home' : 'ti-building';
+
+        return `
+          <div class="prop-card" onclick="window.location='property.html?id=${p.id}'">
+            <div class="prop-img">
+              ${imgSrc ? `<img src="${imgSrc}" alt="${p.title}" onerror="this.style.display='none'" />` : ''}
+              <div class="prop-img-placeholder"><i class="ti ${icon}"></i></div>
+              <span class="prop-badge ${isRent ? 'badge-rent' : 'badge-sale'}">${isRent ? 'For Rent' : 'For Sale'}</span>
+            </div>
+            <div class="prop-info">
+              <div class="prop-price">&#8358;${Number(p.price).toLocaleString()}${isRent ? ' / yr' : ''}</div>
+              <div class="prop-title">${p.title}</div>
+              <div class="prop-location"><i class="ti ti-map-pin"></i> ${p.location}, Lagos</div>
+              <div class="prop-features">
+                ${p.beds ? `<span class="prop-feat"><i class="ti ti-bed"></i> ${p.beds} Beds</span>` : ''}
+                ${p.baths ? `<span class="prop-feat"><i class="ti ti-bath"></i> ${p.baths} Baths</span>` : ''}
+                ${p.size ? `<span class="prop-feat"><i class="ti ti-ruler"></i> ${p.size}</span>` : ''}
+              </div>
+              <a href="property.html?id=${p.id}" class="prop-btn">View Details</a>
+            </div>
+          </div>`;
+      }).join('');
+    }
+
+    // Filter logic
+    function applyFilters() {
+      const search   = document.getElementById('searchInput').value.toLowerCase();
+      const location = document.getElementById('filterLocation').value;
+      const type     = document.getElementById('filterType').value;
+      const category = document.getElementById('filterCategory').value;
+      const beds     = document.getElementById('filterBeds').value;
+
+      const filtered = allProperties.filter(p => {
+        if (search && !p.title?.toLowerCase().includes(search) && !p.location?.toLowerCase().includes(search)) return false;
+        if (location && p.location !== location) return false;
+        if (type && p.type !== type) return false;
+        if (category && p.category !== category) return false;
+        if (beds) {
+          const b = parseInt(beds);
+          if (b === 5 && p.beds < 5) return false;
+          if (b !== 5 && p.beds !== b) return false;
+        }
+        return true;
+      });
+
+      renderProperties(filtered);
+    }
+
+    function clearAllFilters() {
+      document.getElementById('searchInput').value = '';
+      document.getElementById('filterLocation').value = '';
+      document.getElementById('filterType').value = '';
+      document.getElementById('filterCategory').value = '';
+      document.getElementById('filterBeds').value = '';
+      renderProperties(allProperties);
+    }
+
+    // Event listeners
+    document.getElementById('searchInput').addEventListener('input', applyFilters);
+    document.getElementById('filterLocation').addEventListener('change', applyFilters);
+    document.getElementById('filterType').addEventListener('change', applyFilters);
+    document.getElementById('filterCategory').addEventListener('change', applyFilters);
+    document.getElementById('filterBeds').addEventListener('change', applyFilters);
+    document.getElementById('clearFilters').addEventListener('click', clearAllFilters);
+
+    // View toggle
+    document.getElementById('gridView').addEventListener('click', () => {
+      document.getElementById('propertiesGrid').classList.remove('list-view');
+      document.getElementById('gridView').classList.add('active');
+      document.getElementById('listView').classList.remove('active');
+    });
+    document.getElementById('listView').addEventListener('click', () => {
+      document.getElementById('propertiesGrid').classList.add('list-view');
+      document.getElementById('listView').classList.add('active');
+      document.getElementById('gridView').classList.remove('active');
+    });
+
+    // Load on start
+    fetchProperties();
+  </script>
+</body>
+</html>
