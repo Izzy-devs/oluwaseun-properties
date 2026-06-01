@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property | OluwaSeun Properties Lagos</title>
+  <title>Property | Oluwaoluwaseun mathew Properties Lagos</title>
 
   <!-- SEO META TAGS -->
   <meta name="description" content="View property details, photos and contact agent on OluwaSeun Properties Lagos." />
@@ -22,17 +22,14 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">Oluwaseun <span>Property</span></div>
+    <div class="nav-logo">oluwaseun mathew<span>Property</span></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="listings.html" class="active">Listings</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-right">
-      <a href="listings.html" class="nav-cta">View Listings</a>
-      <a href="admin.html" class="nav-admin"><i class="ti ti-lock"></i> Admin</a>
-    </div>
+    <a href="listings.html" class="nav-cta">View Listings</a>
     <button class="nav-toggle" id="navToggle"><i class="ti ti-menu-2"></i></button>
   </nav>
 
@@ -135,9 +132,9 @@
         <div class="sidebar-card agent-card">
           <div class="agent-avatar">SP</div>
           <div class="agent-info">
-            <h3>OluwaSeun Properties</h3>
+            <h3>oluwaseun mathewProperty</h3>
             <p>Licensed Real Estate Agent</p>
-            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 10+ Years Experience</p>
+            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 20+ Years Experience</p>
           </div>
         </div>
 
@@ -204,8 +201,8 @@
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:0.75rem;">Oluwaseun <span>Property</span></div>
-        <p>Your trusted real estate partner in Lagos. 10+ years of experience.</p>
+        <div class="nav-logo" style="margin-bottom:0.75rem;">oluwaseun mathew<span>Property</span></div>
+        <p>Your trusted real estate partner in Lagos. 20+ years of experience.</p>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
@@ -220,7 +217,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 OluwaSeun Properties. All rights reserved.</p>
+      <p>&copy; 2025 oluwaseun mathewProperty. All rights reserved.</p>
       <p class="gold">Lagos, Nigeria</p>
     </div>
   </footer>
@@ -268,7 +265,7 @@
     }
 
     function renderProperty(p) {
-      document.title = `${p.title} | OluwaSeun Properties`;
+      document.title = `${p.title} | oluwaseun mathewProperty`;
       document.getElementById('breadcrumbTitle').textContent = p.title;
       document.getElementById('propTitle').textContent = p.title;
       document.getElementById('propLocation').textContent = `${p.location}, Lagos`;
@@ -324,14 +321,15 @@
         ${p.size  ? `<tr><td>Size</td><td>${p.size}</td></tr>` : ''}
         ${p.beds  ? `<tr><td>Bedrooms</td><td>${p.beds}</td></tr>` : ''}
         ${p.baths ? `<tr><td>Bathrooms</td><td>${p.baths}</td></tr>` : ''}
-        <tr><td>Listed By</td><td>OluwaSeun Properties</td></tr>`;
+        <tr><td>Listed By</td><td>oluwaseun mathewProperty</td></tr>`;
 
-      // Map
-      document.getElementById('mapLocation').textContent = `${p.location}, Lagos, Nigeria`;
-      document.getElementById('mapLink').href = `https://maps.google.com/?q=${encodeURIComponent(p.location + ' Lagos Nigeria')}`;
+      // Map — use full address if available, fallback to location
+      const mapAddress = p.address || (p.location + ', Lagos, Nigeria');
+      document.getElementById('mapLocation').textContent = mapAddress;
+      document.getElementById('mapLink').href = `https://maps.google.com/?q=${encodeURIComponent(mapAddress)}`;
 
       // WhatsApp button
-      const waText = `Hello OluwaSeun Properties!%0A%0AI am interested in: ${encodeURIComponent(p.title)}%0ALocation: ${encodeURIComponent(p.location)}%0APrice: ₦${Number(p.price).toLocaleString()}%0A%0APlease send me more details.`;
+      const waText = `Hello Seun Property!%0A%0AI am interested in: ${encodeURIComponent(p.title)}%0ALocation: ${encodeURIComponent(p.location)}%0APrice: ₦${Number(p.price).toLocaleString()}%0A%0APlease send me more details.`;
       document.getElementById('waBtn').href = `https://wa.me/2348035623645?text=${waText}`;
 
       // Show content
@@ -370,7 +368,7 @@
       const message = document.getElementById('inquiryMessage').value.trim();
       if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
       const title = property ? property.title : 'this property';
-      const text  = `Hello OluwaSeun Properties!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AProperty: ${encodeURIComponent(title)}%0A%0A${encodeURIComponent(message || 'Please contact me.')}`;
+      const text  = `Hello Seun Property!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AProperty: ${encodeURIComponent(title)}%0A%0A${encodeURIComponent(message || 'Please contact me.')}`;
       window.open(`https://wa.me/2348035623645?text=${text}`, '_blank');
       document.getElementById('inquiryFormWrap').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
@@ -378,7 +376,7 @@
 
     // Share
     document.getElementById('shareWa').addEventListener('click', () => {
-      window.open(`https://wa.me/?text=Check out this property from OluwaSeun Properties:%0A${encodeURIComponent(window.location.href)}`, '_blank');
+      window.open(`https://wa.me/?text=Check out this property from Seun Property:%0A${encodeURIComponent(window.location.href)}`, '_blank');
     });
     document.getElementById('shareCopy').addEventListener('click', () => {
       navigator.clipboard.writeText(window.location.href).then(() => {
