@@ -135,9 +135,9 @@
         <div class="sidebar-card agent-card">
           <div class="agent-avatar">SP</div>
           <div class="agent-info">
-            <h3>Seun Property</h3>
+            <h3>OluwaSeun Properties</h3>
             <p>Licensed Real Estate Agent</p>
-            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 20+ Years Experience</p>
+            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 10+ Years Experience</p>
           </div>
         </div>
 
@@ -205,7 +205,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo" style="margin-bottom:0.75rem;">Seun <span>Property</span></div>
-        <p>Your trusted real estate partner in Lagos. 20+ years of experience.</p>
+        <p>Your trusted real estate partner in Lagos. 10+ years of experience.</p>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
@@ -220,7 +220,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 Seun Property. All rights reserved.</p>
+      <p>&copy; 2025 OluwaSeun Properties. All rights reserved.</p>
       <p class="gold">Lagos, Nigeria</p>
     </div>
   </footer>
@@ -268,7 +268,7 @@
     }
 
     function renderProperty(p) {
-      document.title = `${p.title} | Seun Property`;
+      document.title = `${p.title} | OluwaSeun Properties`;
       document.getElementById('breadcrumbTitle').textContent = p.title;
       document.getElementById('propTitle').textContent = p.title;
       document.getElementById('propLocation').textContent = `${p.location}, Lagos`;
@@ -324,14 +324,14 @@
         ${p.size  ? `<tr><td>Size</td><td>${p.size}</td></tr>` : ''}
         ${p.beds  ? `<tr><td>Bedrooms</td><td>${p.beds}</td></tr>` : ''}
         ${p.baths ? `<tr><td>Bathrooms</td><td>${p.baths}</td></tr>` : ''}
-        <tr><td>Listed By</td><td>Seun Property</td></tr>`;
+        <tr><td>Listed By</td><td>OluwaSeun Properties</td></tr>`;
 
       // Map
       document.getElementById('mapLocation').textContent = `${p.location}, Lagos, Nigeria`;
       document.getElementById('mapLink').href = `https://maps.google.com/?q=${encodeURIComponent(p.location + ' Lagos Nigeria')}`;
 
       // WhatsApp button
-      const waText = `Hello Seun Property!%0A%0AI am interested in: ${encodeURIComponent(p.title)}%0ALocation: ${encodeURIComponent(p.location)}%0APrice: ₦${Number(p.price).toLocaleString()}%0A%0APlease send me more details.`;
+      const waText = `Hello OluwaSeun Properties!%0A%0AI am interested in: ${encodeURIComponent(p.title)}%0ALocation: ${encodeURIComponent(p.location)}%0APrice: ₦${Number(p.price).toLocaleString()}%0A%0APlease send me more details.`;
       document.getElementById('waBtn').href = `https://wa.me/2348035623645?text=${waText}`;
 
       // Show content
@@ -370,7 +370,7 @@
       const message = document.getElementById('inquiryMessage').value.trim();
       if (!name || !phone) { alert('Please enter your name and phone number.'); return; }
       const title = property ? property.title : 'this property';
-      const text  = `Hello Seun Property!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AProperty: ${encodeURIComponent(title)}%0A%0A${encodeURIComponent(message || 'Please contact me.')}`;
+      const text  = `Hello OluwaSeun Properties!%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0AProperty: ${encodeURIComponent(title)}%0A%0A${encodeURIComponent(message || 'Please contact me.')}`;
       window.open(`https://wa.me/2348035623645?text=${text}`, '_blank');
       document.getElementById('inquiryFormWrap').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
@@ -378,7 +378,7 @@
 
     // Share
     document.getElementById('shareWa').addEventListener('click', () => {
-      window.open(`https://wa.me/?text=Check out this property from Seun Property:%0A${encodeURIComponent(window.location.href)}`, '_blank');
+      window.open(`https://wa.me/?text=Check out this property from OluwaSeun Properties:%0A${encodeURIComponent(window.location.href)}`, '_blank');
     });
     document.getElementById('shareCopy').addEventListener('click', () => {
       navigator.clipboard.writeText(window.location.href).then(() => {
