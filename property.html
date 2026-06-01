@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property | OluwaSeun Property</title>
+  <title>Property | Seun Property</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/property.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -12,7 +12,7 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">OluwaSeun <span>Property</span></div>
+    <div class="nav-logo">Seun <span>Property</span></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="listings.html" class="active">Listings</a></li>
@@ -60,7 +60,7 @@
         <!-- GALLERY -->
         <div class="gallery">
           <div class="gallery-main">
-            <img id="mainImg" src="" alt="Property image" onerror="this.style.display='none'" />
+            <img id="mainImg" src="" alt="Property image" onerror="this.style.display='none'" / loading="lazy">
             <div class="gallery-main-placeholder"><i class="ti ti-building" id="galleryIcon"></i></div>
             <span class="prop-badge badge-sale" id="propBadge">For Sale</span>
             <button class="gallery-prev" id="prevBtn"><i class="ti ti-chevron-left"></i></button>
@@ -125,9 +125,9 @@
         <div class="sidebar-card agent-card">
           <div class="agent-avatar">SP</div>
           <div class="agent-info">
-            <h3>OluawSeun Property</h3>
+            <h3>Seun Property</h3>
             <p>Licensed Real Estate Agent</p>
-            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 10+ Years Experience</p>
+            <p class="agent-exp"><i class="ti ti-star-filled" style="color:var(--gold);"></i> 20+ Years Experience</p>
           </div>
         </div>
 
@@ -194,8 +194,8 @@
   <footer class="footer">
     <div class="footer-top">
       <div class="footer-brand">
-        <div class="nav-logo" style="margin-bottom:0.75rem;">OluwaSeun <span>Property</span></div>
-        <p>Your trusted real estate partner in Lagos. 10+ years of experience.</p>
+        <div class="nav-logo" style="margin-bottom:0.75rem;">Seun <span>Property</span></div>
+        <p>Your trusted real estate partner in Lagos. 20+ years of experience.</p>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
@@ -258,7 +258,7 @@
     }
 
     function renderProperty(p) {
-      document.title = `${p.title} | OluwaSeun Property`;
+      document.title = `${p.title} | Seun Property`;
       document.getElementById('breadcrumbTitle').textContent = p.title;
       document.getElementById('propTitle').textContent = p.title;
       document.getElementById('propLocation').textContent = `${p.location}, Lagos`;
@@ -304,7 +304,7 @@
         ${p.size  ? `<tr><td>Size</td><td>${p.size}</td></tr>` : ''}
         ${p.beds  ? `<tr><td>Bedrooms</td><td>${p.beds}</td></tr>` : ''}
         ${p.baths ? `<tr><td>Bathrooms</td><td>${p.baths}</td></tr>` : ''}
-        <tr><td>Listed By</td><td>OluwaSeun Property</td></tr>`;
+        <tr><td>Listed By</td><td>Seun Property</td></tr>`;
 
       // Map
       document.getElementById('mapLocation').textContent = `${p.location}, Lagos, Nigeria`;
@@ -331,7 +331,7 @@
     function renderThumbs() {
       document.getElementById('galleryThumbs').innerHTML = images.map((url, i) => `
         <div class="thumb ${i === 0 ? 'active' : ''}" data-index="${i}" onclick="setImage(${i})">
-          <img src="${url}" alt="Photo ${i+1}" onerror="this.style.display='none'" />
+          <img src="${url}" alt="Photo ${i+1}" onerror="this.style.display='none'" / loading="lazy">
           <div class="thumb-placeholder"><i class="ti ti-photo"></i></div>
         </div>`).join('');
     }
@@ -389,7 +389,7 @@
           return `
             <div class="prop-card" onclick="window.location='property.html?id=${rp.id}'">
               <div class="prop-img">
-                ${img ? `<img src="${img}" alt="${rp.title}" onerror="this.style.display='none'" />` : ''}
+                ${img ? `<img src="${img}" alt="${rp.title}" onerror="this.style.display='none'" / loading="lazy">` : ''}
                 <div class="prop-img-placeholder"><i class="ti ${icon}"></i></div>
                 <span class="prop-badge ${rp.type === 'rent' ? 'badge-rent' : 'badge-sale'}">${rp.type === 'rent' ? 'For Rent' : 'For Sale'}</span>
               </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>OluwaSeun Property | Luxury Real Estate in Lagos</title>
+  <title>Seun Property | Luxury Real Estate in Lagos</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
 </head>
@@ -11,19 +11,17 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-logo">OluwaSeun <span>Property</span></div>
+    <div class="nav-logo">Seun <span>Property</span></div>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li><a href="listings.html">Listings</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <div class="nav-right">
-  <a href="listings.html" class="nav-cta">View Listings</a>
-  <a href="admin.html" class="nav-admin">
-    <i class="ti ti-lock"></i> Admin
-  </a>
-</div>
+    <a href="listings.html" class="nav-cta">View Listings</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
   </nav>
 
   <!-- HERO -->
@@ -33,7 +31,7 @@
       <h1>Find Your <span class="gold">Dream Home</span><br />In Lagos</h1>
       <p class="hero-sub">
         Luxury properties, prime locations, and trusted service. Seun Property connects
-        you with the best real estate across Lagos — Lekki, VI, Ibeju, Ajah and beyond.
+        you with the best real estate across Lagos — Lekki, VI, Ikoyi, Ajah and beyond.
       </p>
       <div class="hero-btns">
         <a href="listings.html" class="btn-primary">Explore Properties</a>
@@ -47,11 +45,11 @@
   <!-- STATS BAR -->
   <div class="stats-bar">
     <div class="stat">
-      <div class="stat-num">5+</div>
+      <div class="stat-num">150+</div>
       <div class="stat-label">Properties Listed</div>
     </div>
     <div class="stat">
-      <div class="stat-num">10+</div>
+      <div class="stat-num">20+</div>
       <div class="stat-label">Years Experience</div>
     </div>
     <div class="stat">
@@ -126,7 +124,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo" style="margin-bottom:0.75rem;">Seun <span>Property</span></div>
-        <p>Your trusted real estate partner in Lagos. Luxury homes, prime land, and professional service for over 10 years.</p>
+        <p>Your trusted real estate partner in Lagos. Luxury homes, prime land, and professional service for over 20 years.</p>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
@@ -138,11 +136,11 @@
         <h4>Contact</h4>
         <a href="tel:+2348035623645"><i class="ti ti-phone"></i> 08035623645</a>
         <a href="https://wa.me/2348035623645" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:seunshobowale28@gmail.com"><i class="ti ti-mail"></i> Email Us</a>
+        <a href="mailto:info@seunproperty.com"><i class="ti ti-mail"></i> Email Us</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 OluwaSeun Property. All rights reserved.</p>
+      <p>&copy; 2025 Seun Property. All rights reserved.</p>
       <p class="gold">Lagos, Nigeria</p>
     </div>
   </footer>
@@ -178,7 +176,7 @@
           return `
             <div class="prop-card" onclick="window.location='property.html?id=${p.id}'">
               <div class="prop-img">
-                ${img ? `<img src="${img}" alt="${p.title}" onerror="this.style.display='none'" />` : ''}
+                ${img ? `<img src="${img}" alt="${p.title}" onerror="this.style.display='none'" / loading="lazy">` : ''}
                 <div class="prop-img-placeholder"><i class="ti ${icon}"></i></div>
                 <span class="prop-badge ${p.type === 'rent' ? 'badge-rent' : 'badge-sale'}">${p.type === 'rent' ? 'For Rent' : 'For Sale'}</span>
               </div>

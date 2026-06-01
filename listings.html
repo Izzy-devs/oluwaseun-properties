@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Properties | OluwaSeun Property</title>
+  <title>Properties | Seun Property</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/listings.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -11,27 +11,19 @@
 <body>
 
   <!-- NAVBAR -->
-  <!-- COPY THIS NAVBAR INTO ALL PAGES (index, listings, about, contact, property) -->
-<!-- Change the "active" class to match whichever page you're on -->
-
-<nav class="navbar">
-  <div class="nav-logo">OluwaSeun <span>Property</span></div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="listings.html">Listings</a></li>
-    <li><a href="about.html">About</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-  <div class="nav-right">
+  <nav class="navbar">
+    <div class="nav-logo">Seun <span>Property</span></div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="listings.html" class="active">Listings</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
     <a href="listings.html" class="nav-cta">View Listings</a>
-    <a href="admin.html" class="nav-admin">
-      <i class="ti ti-lock"></i> Admin
-    </a>
-  </div>
-  <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
-    <i class="ti ti-menu-2"></i>
-  </button>
-</nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+      <i class="ti ti-menu-2"></i>
+    </button>
+  </nav>
 
   <!-- PAGE HEADER -->
   <div class="page-header">
@@ -52,6 +44,7 @@
       <option>Victoria Island</option>
       <option>Ikoyi</option>
       <option>Ajah</option>
+      <option>Surulere</option>
       <option>Yaba</option>
       <option>Ikeja</option>
       <option>Maryland</option>
@@ -127,7 +120,7 @@
     <div class="footer-top">
       <div class="footer-brand">
         <div class="nav-logo" style="margin-bottom:0.75rem;">Seun <span>Property</span></div>
-        <p>Your trusted real estate partner in Lagos. Luxury homes, prime land, and professional service for 10+ years.</p>
+        <p>Your trusted real estate partner in Lagos. Luxury homes, prime land, and professional service for 20+ years.</p>
       </div>
       <div class="footer-links">
         <h4>Quick Links</h4>
@@ -139,11 +132,11 @@
         <h4>Contact</h4>
         <a href="tel:+2348035623645"><i class="ti ti-phone"></i> 08035623645</a>
         <a href="https://wa.me/2348035623645" target="_blank"><i class="ti ti-brand-whatsapp"></i> WhatsApp</a>
-        <a href="mailto:seunshobowale28@gmail.com"><i class="ti ti-mail"></i> Email Us</a>
+        <a href="mailto:info@seunproperty.com"><i class="ti ti-mail"></i> Email Us</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2025 OluwaSeun Property. All rights reserved.</p>
+      <p>&copy; 2025 Seun Property. All rights reserved.</p>
       <p class="gold">Lagos, Nigeria</p>
     </div>
   </footer>
@@ -209,7 +202,7 @@
         return `
           <div class="prop-card" onclick="window.location='property.html?id=${p.id}'">
             <div class="prop-img">
-              ${imgSrc ? `<img src="${imgSrc}" alt="${p.title}" onerror="this.style.display='none'" />` : ''}
+              ${imgSrc ? `<img src="${imgSrc}" alt="${p.title}" onerror="this.style.display='none'" / loading="lazy">` : ''}
               <div class="prop-img-placeholder"><i class="ti ${icon}"></i></div>
               <span class="prop-badge ${isRent ? 'badge-rent' : 'badge-sale'}">${isRent ? 'For Rent' : 'For Sale'}</span>
             </div>
