@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Property | Seun Property</title>
+  <title>Property | OluwaSeun Properties Lagos</title>
+
+  <!-- SEO META TAGS -->
+  <meta name="description" content="View property details, photos and contact agent on OluwaSeun Properties Lagos." />
+  <meta name="robots" content="index, follow" />
+  <meta property="og:site_name" content="OluwaSeun Properties" />
+  <meta property="og:type" content="website" />
+  <meta id="ogTitle" property="og:title" content="Property | OluwaSeun Properties" />
+  <meta id="ogDesc" property="og:description" content="View property details on OluwaSeun Properties Lagos." />
+  <meta id="ogUrl" property="og:url" content="https://oluwaseunproperties.com.ng/property.html" />
+  <meta id="ogImage" property="og:image" content="" />
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/property.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css" />
@@ -263,6 +273,16 @@
       document.getElementById('propTitle').textContent = p.title;
       document.getElementById('propLocation').textContent = `${p.location}, Lagos`;
       document.getElementById('propPrice').textContent = `₦${Number(p.price).toLocaleString()}${p.type === 'rent' ? ' / yr' : ''}`;
+
+
+      // Dynamic SEO
+      document.title = `${p.title} in ${p.location} | OluwaSeun Properties`;
+      document.querySelector('meta[name="description"]').setAttribute('content',
+        `${p.title} for ${p.type === 'rent' ? 'rent' : 'sale'} in ${p.location}, Lagos. ₦${Number(p.price).toLocaleString()}. Contact OluwaSeun Properties.`);
+      document.getElementById('ogTitle').setAttribute('content', `${p.title} in ${p.location} | OluwaSeun Properties`);
+      document.getElementById('ogDesc').setAttribute('content', `${p.title} for ${p.type === 'rent' ? 'rent' : 'sale'} in ${p.location}, Lagos. ₦${Number(p.price).toLocaleString()}.`);
+      document.getElementById('ogUrl').setAttribute('content', window.location.href);
+      if (images.length > 0) document.getElementById('ogImage').setAttribute('content', images[0]);
 
       // Badge
       const badge = document.getElementById('propBadge');
